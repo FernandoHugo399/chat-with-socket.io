@@ -1,0 +1,98 @@
+@charset "UTF-8";
+
+/* Estilos globais */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+}
+
+html,body{
+    height: 100%;
+}
+
+main{
+    display: flex;
+    height: 100%;
+}
+
+/************/
+
+
+/* Sidebar */
+section.sidebar{
+    width: 350px;
+    height: 100%;
+    background-color: #eee;
+}
+
+section.content{
+    width: calc(100% - 350px);
+    height: 100%;
+    background-color: rgb(245, 245, 245);
+    padding: 20px 0.5%;
+}
+
+
+#form {
+    width: calc(100% - 350px);
+    background: rgba(0, 0, 0, 0.15);
+    padding: 0.25rem;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    position: fixed;
+    height: 3rem;
+    box-sizing: border-box;
+    backdrop-filter: blur(10px); 
+}
+#input {
+    border: none;
+    padding: 0 1rem;
+    flex-grow: 1; 
+    border-radius:2rem; 
+    margin: 0.25rem; 
+}
+#input:focus {
+     outline: none; 
+}
+#form > button {
+     background: #333; 
+     border: none; 
+     padding: 0 1rem; 
+     margin: 0.25rem; 
+     border-radius: 3px; 
+     outline: none; 
+     color: #fff; 
+     cursor: pointer;
+}
+
+#form > button:hover{
+    background: #222;  
+}
+
+#messages {
+     list-style-type: none; 
+     margin: 0; 
+     padding: 0;
+}
+#messages > li { 
+  padding: 5px 1rem;
+  clear: both;
+  border-radius: 15px;
+  margin: 3px 0;
+  max-width: 250px;
+  word-break: keep-all;
+}
+
+
+.my-message{
+    float: right;
+    background-color: #e9e8e8;
+}
+
+.they-message{
+    background-color: #ddd;
+    float: left;
+}
