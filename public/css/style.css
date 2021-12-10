@@ -15,6 +15,7 @@ html,body{
 main{
     display: flex;
     height: 100%;
+    padding-bottom: 48px;
 }
 
 /************/
@@ -22,21 +23,33 @@ main{
 
 /* Sidebar */
 section.sidebar{
-    width: 350px;
+    position: fixed;
+    width: 280px;
     height: 100%;
     background-color: #eee;
 }
 
+/************/
+
+
+
+/* conteudo */
 section.content{
-    width: calc(100% - 350px);
+    margin-left: 280px;
+    width: calc(100% - 280px);
     height: 100%;
     background-color: rgb(245, 245, 245);
     padding: 20px 0.5%;
+    position: relative;
+    left: 0;
+    right: 0;
+    transition: 0.3s;
+    overflow-x: hidden;
 }
 
 
 #form {
-    width: calc(100% - 350px);
+    width: calc(100% - 280px);
     background: rgba(0, 0, 0, 0.15);
     padding: 0.25rem;
     bottom: 0;
@@ -82,7 +95,7 @@ section.content{
   clear: both;
   border-radius: 15px;
   margin: 3px 0;
-  max-width: 250px;
+  max-width: 350px;
   word-break: keep-all;
 }
 
@@ -96,3 +109,6 @@ section.content{
     background-color: #ddd;
     float: left;
 }
+
+
+/************/
