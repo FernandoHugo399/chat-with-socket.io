@@ -14,10 +14,36 @@ for(let i = 0; i < 10; i+= 0){
     }
 
 };
-
 var nomeFinal = format[0];
-console.log(nomeFinal);
+
+
 
 var socket = io()
 
 socket.emit('passName', nomeFinal)
+
+
+
+const pessoas = document.querySelectorAll('.list-pessoas')[0];
+const quantPessoas = document.querySelector('#quant-pessoas');
+socket.on('listNames', (nomes) =>{
+    console.log(nomes.length)
+    quantPessoas.innerHTML = nomes.length;
+
+    while (pessoas.firstChild) {
+        pessoas.removeChild(pessoas.firstChild);
+      }
+
+    
+    for(let i = 0; i < nomes.length; i++){
+
+        var li = document.createElement('li');
+        var p = document.createElement('p');
+        var contName = document.createTextNode(nomes[i]);
+        p.appendChild(contName);
+        li.appendChild(p);
+
+
+        pessoas.appendChild(li)
+    }
+})

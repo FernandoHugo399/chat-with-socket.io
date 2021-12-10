@@ -23,19 +23,22 @@
 
   io.on('connection', (socket)=>{
     socket.on('passName', (nome)=>{
-     
-
       nomes.push(nome);
       socketIds.push(socket.id);
-      console.log(nomes)
-      console.log(socketIds)
+
+
+      io.emit('listNames', nomes)
     })
+
+
 
 
     socket.on('disconnect', ()=>{
       index = socketIds.indexOf(socket.id)
       nomes.splice(index, 1)
       socketIds.splice(index, 1)
+
+      io.emit('listNames', nomes)
     })
   })
 

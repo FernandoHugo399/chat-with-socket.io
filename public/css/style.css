@@ -83,6 +83,8 @@ section.sidebar{
 .sidebar .title{
     width: 100%;
     text-align: center;
+    font-size: 24px;
+    font-weight: 500;
 }
 
 .sidebar ul{
@@ -98,6 +100,8 @@ section.sidebar{
 
 .sidebar ul li p{
     color: black;
+    text-transform: capitalize
+    ;
 }
 
 /************/
@@ -249,7 +253,7 @@ section.content{
     }
 
     section.sidebar .title{
-        font-size: 15px;
+        font-size: 21px;
     }
 
     .left-content{
