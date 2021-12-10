@@ -27,6 +27,28 @@ section.sidebar{
     width: 280px;
     height: 100%;
     background-color: #eee;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+.sidebar .title{
+    width: 100%;
+    text-align: center;
+}
+
+.sidebar ul{
+    padding: 20px 0 0 10px;
+}
+
+.sidebar ul li{
+    color: green;
+    padding: 3px 0;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.sidebar ul li p{
+    color: black;
 }
 
 /************/
