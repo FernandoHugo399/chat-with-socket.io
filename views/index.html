@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Hugo Fernando">
-    <meta name="description" content="Venha">
+    <meta name="description" content="Venha interagir em nosso chat com outras pessoas!">
+    <meta name="keywords" content="html, css, javascript, nodejs, socket.io">
     <title>Chat with Socket.io</title>
     <link rel="shortcut icon" href="/images/socket.io.png" type="image/x-icon">
     <link rel="stylesheet" href="/css/style.css">
@@ -14,10 +15,20 @@
     </head>
   
     <body>
+        <div class="mobile">
+            <div class="icon-menu"></div>
+            <div class="icon-socket"></div>
+    </div>
         <main>
             <section class="sidebar">
                 <div class="title"><h2>Pessoas online: 2</h2></div>
                 <ul class="list-pessoas">
+                    <li><p>Hugo</p></li>
+                    <li><p>Marcos</p></li>
+                    <li><p>Hugo</p></li>
+                    <li><p>Marcos</p></li>
+                    <li><p>Hugo</p></li>
+                    <li><p>Marcos</p></li>
                     <li><p>Hugo</p></li>
                     <li><p>Marcos</p></li>
                 </ul>
@@ -29,7 +40,6 @@
                     <li class="they-message"><p>Hugo</p>Hello World!</li>
                     <li class="they-message"><p>Hugo</p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum labore corrupti praesentium laudantium omnis soluta minus, sint, officiis voluptatem debitis ut tempora laborum iusto sapiente blanditiis minima repellendus animi? Ut.</li>
                     <li class="my-message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum labore corrupti praesentium laudantium omnis soluta minus, sint, officiis voluptatem debitis ut tempora laborum iusto sapiente blanditiis minima repellendus animi? Ut.</li>
-                    <li class="they-message"><p>Marcos</p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum labore corrupti praesentium laudantium omnis soluta minus, sint, officiis voluptatem debitis ut tempora laborum iusto sapiente blanditiis minima repellendus animi? Ut.</li>
                     <li class="my-message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum labore corrupti praesentium laudantium omnis soluta minus, sint, officiis voluptatem debitis ut tempora laborum iusto sapiente blanditiis minima repellendus animi? Ut.</li>
                 </ul><!-- messages -->
                 <form id="form">
