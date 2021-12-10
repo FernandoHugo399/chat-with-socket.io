@@ -98,6 +98,11 @@ section.content{
   max-width: 350px;
   word-break: keep-all;
 }
+#messages > li > p { 
+    font-size: 13px;
+    font-weight: bold;
+    padding-bottom: 1px;
+  }
 
 
 .my-message{
