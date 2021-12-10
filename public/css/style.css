@@ -220,7 +220,7 @@ section.content{
 @media screen and (max-width:900px) {
     main{
         margin-top: 60px;
-        padding-bottom: 120px;
+        padding-bottom: 110px;
     }
     .mobile{
         display: flex;
@@ -229,7 +229,7 @@ section.content{
     section.sidebar{
         position: fixed;
         left: -250px; 
-        padding-bottom: 120px;
+        padding-bottom: 110px;
     }
 
     section.content{
