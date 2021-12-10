@@ -16,4 +16,8 @@ for(let i = 0; i < 10; i+= 0){
 };
 
 var nomeFinal = format[0];
-console.log(nomeFinal)
+console.log(nomeFinal);
+
+var socket = io()
+
+socket.emit('passName', nomeFinal)

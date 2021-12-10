@@ -16,6 +16,29 @@
   const server = require('http').createServer(app);
   const io = require('socket.io')(server);
 
+  var nomes = [];
+  var socketIds = [];
+  
+
+
+  io.on('connection', (socket)=>{
+    socket.on('passName', (nome)=>{
+     
+
+      nomes.push(nome);
+      socketIds.push(socket.id);
+      console.log(nomes)
+      console.log(socketIds)
+    })
+
+
+    socket.on('disconnect', ()=>{
+      index = socketIds.indexOf(socket.id)
+      nomes.splice(index, 1)
+      socketIds.splice(index, 1)
+    })
+  })
+
 
 
 // Subindo arquivos estáticos
