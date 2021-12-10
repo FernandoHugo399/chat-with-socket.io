@@ -23,8 +23,15 @@
 
   io.on('connection', (socket)=>{
     socket.on('passName', (nome)=>{
-      nomes.push(nome);
-      socketIds.push(socket.id);
+      var format = nome.toLowerCase()
+      if(nomes.indexOf(format) == -1){
+        nomes.push(format);
+        socketIds.push(socket.id);
+        socket.emit('passName', {success: true})
+      } else {
+        socket.emit('passName', {success: false})
+      }
+      
 
 
       io.emit('listNames', nomes)
@@ -35,8 +42,10 @@
 
     socket.on('disconnect', ()=>{
       index = socketIds.indexOf(socket.id)
-      nomes.splice(index, 1)
-      socketIds.splice(index, 1)
+      if(index != -1){
+        nomes.splice(index, 1)
+        socketIds.splice(index, 1)
+      }
 
       io.emit('listNames', nomes)
     })
