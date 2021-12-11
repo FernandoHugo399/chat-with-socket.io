@@ -79,7 +79,6 @@ socket.on('passName', data=>{
   form.addEventListener('submit', (e)=>{
       e.preventDefault();
       if(input.value.trim() == ''){
-          console.log('vazio')
       } else {
           var messageObject = {
             author: nomeFinal,
@@ -95,7 +94,6 @@ socket.on('passName', data=>{
 
   //Mensagens anteriores
     socket.on('previousMessages', (data)=>{
-        console.log(data)
             for(var i = 0; i < data.length; i++){
                 if(data[i].author == nomeFinal){
                     renderMyMessage(data[i])
