@@ -62,14 +62,12 @@ socket.on('passName', data=>{
     
       for(let i = 0; i < nomes.length; i++){
 
-          var li = document.createElement('li');
-          var p = document.createElement('p');
+          let li = document.createElement('li');
+          let p = document.createElement('p');
           var contName = document.createTextNode(nomes[i]);
           p.appendChild(contName);
           li.appendChild(p);
-
-
-          pessoas.appendChild(li)
+          pessoas.appendChild(li);
       }
   })
 
@@ -79,9 +77,42 @@ socket.on('passName', data=>{
   const input = document.getElementById('input');
   form.addEventListener('submit', (e)=>{
       e.preventDefault();
+      if(input.value.trim() == ''){
+          console.log('vazio')
+      } else {
+          renderMessage(input.value.trim())
+          content.scrollTo(0, content.scrollHeight)
+
+          var messageObject = {
+            author: nomeFinal,
+            message: input.value.trim()
+          } 
+
+          socket.emit('sendMessage', messageObject)
+
+
+      }
       input.value = '';
       input.focus();
   })
 
+
+  //Mensagens
+  const messages = document.querySelector("#messages");
+  content.scrollTo(0, content.scrollHeight) 
+
+  function renderMessage(message) {
+    let li = document.createElement('li');
+    let p = document.createElement('p');
+    let div = document.createElement('div');
+    var contNome = document.createTextNode(nomeFinal);
+    var contMessage = document.createTextNode(message);
+    li.setAttribute('class', 'they-message')
+    p.appendChild(contNome)
+    div.appendChild(contMessage)
+    li.appendChild(p)
+    li.appendChild(div)
+    messages.appendChild(li)
+}
 
 

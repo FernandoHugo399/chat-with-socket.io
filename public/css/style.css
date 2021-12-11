@@ -175,6 +175,7 @@ section.content{
     font-size: 13px;
     font-weight: bold;
     padding-bottom: 1px;
+    text-transform: capitalize;
   }
 
 

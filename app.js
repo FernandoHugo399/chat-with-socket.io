@@ -18,7 +18,7 @@
   
   var nomes = [];
   var socketIds = [];
-  
+  var messages = [];
 
   // Requisições com o front-end
     io.on('connection', (socket)=>{
@@ -33,6 +33,13 @@
         }
       
       io.emit('listNames', nomes)
+    })
+
+
+    socket.on('sendMessage', (data)=>{
+      messages.push(data)
+      console.log(messages)
+
     })
 
 
