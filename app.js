@@ -39,8 +39,10 @@
 
 
     socket.on('sendMessage', (data)=>{
+      if(messages.length = 50){
+        messages.shift()
+      }
       messages.push(data)
-      console.log(messages)
 
       socket.broadcast.emit('receivedMessage', data)
     })
