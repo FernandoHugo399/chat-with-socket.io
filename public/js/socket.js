@@ -96,7 +96,11 @@ socket.on('passName', data=>{
   //Mensagens anteriores
     socket.on('previousMessages', data=>{
         for(var i = 0; i < data.length; i++){
-            renderMessage(data[i])
+            if(data[i].author == nomeFinal){
+                renderMyMessage(data[i])
+            } else {
+                renderMessage(data[i])
+            }
         }
     })
 
