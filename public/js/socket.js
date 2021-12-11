@@ -95,13 +95,15 @@ socket.on('passName', data=>{
 
   //Mensagens anteriores
     socket.on('previousMessages', (data)=>{
-        for(var i = 0; i < data.length; i++){
-            if(data[i].author == nomeFinal){
-                renderMyMessage(data[i])
-            } else {
-                renderMessage(data[i])
+        console.log(data)
+            for(var i = 0; i < data.length; i++){
+                if(data[i].author == nomeFinal){
+                    renderMyMessage(data[i])
+                } else {
+                    renderMessage(data[i])
+                }
             }
-        }
+        
     })
 
 

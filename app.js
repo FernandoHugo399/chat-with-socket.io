@@ -39,7 +39,7 @@
 
 
     socket.on('sendMessage', (data)=>{
-      if(messages.length = 50){
+      if(messages.length == 50){
         messages.shift()
       }
       messages.push(data)
