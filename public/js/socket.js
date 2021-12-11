@@ -70,3 +70,16 @@ socket.on('listNames', (nomes) =>{
         pessoas.appendChild(li)
     }
 })
+
+
+
+const form = document.querySelector('#form');
+const input = document.getElementById('input');
+form.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    input.value = '';
+    input.focus();
+})
+
+
+
