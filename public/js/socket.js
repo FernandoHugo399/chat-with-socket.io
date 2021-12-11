@@ -94,7 +94,11 @@ socket.on('passName', data=>{
   })
 
   //Mensagens anteriores
-    
+    socket.on('previousMessages', data=>{
+        for(var i = 0; i < data.length; i++){
+            renderMessage(data[i])
+        }
+    })
 
 
   //Mensagens Atuais
@@ -120,14 +124,10 @@ socket.on('passName', data=>{
 
 function renderMyMessage(message) {
     let li = document.createElement('li');
-    let p = document.createElement('p');
     let div = document.createElement('div');
-    var contNome = document.createTextNode(message.author);
     var contMessage = document.createTextNode(message.message);
     li.setAttribute('class', 'my-message')
-    p.appendChild(contNome)
     div.appendChild(contMessage)
-    li.appendChild(p)
     li.appendChild(div)
     messages.appendChild(li)
 
