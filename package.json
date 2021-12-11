@@ -1,0 +1,24 @@
+{
+  "name": "chat-socket.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^4.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FernandoHugo399/chat-with-socket.io.git"
+  },
+  "author": "hugo fernando",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FernandoHugo399/chat-with-socket.io/issues"
+  },
+  "homepage": "https://github.com/FernandoHugo399/chat-with-socket.io#readme"
+}
