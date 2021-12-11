@@ -35,11 +35,14 @@
       io.emit('listNames', nomes)
     })
 
+    socket.emit('previousMessages', messages)
+
 
     socket.on('sendMessage', (data)=>{
       messages.push(data)
       console.log(messages)
 
+      socket.broadcast.emit('receivedMessage', data)
     })
 
 

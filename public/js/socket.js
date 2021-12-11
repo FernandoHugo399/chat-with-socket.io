@@ -49,6 +49,7 @@ socket.on('passName', data=>{
             }
 })
 
+
   //sidebar
   const pessoas = document.querySelectorAll('.list-pessoas')[0];
   const quantPessoas = document.querySelector('#quant-pessoas');
@@ -80,24 +81,23 @@ socket.on('passName', data=>{
       if(input.value.trim() == ''){
           console.log('vazio')
       } else {
-          renderMessage(input.value.trim())
-          content.scrollTo(0, content.scrollHeight)
-
           var messageObject = {
             author: nomeFinal,
             message: input.value.trim()
           } 
 
           socket.emit('sendMessage', messageObject)
-
-
+          renderMyMessage(messageObject)
       }
       input.value = '';
       input.focus();
   })
 
+  //Mensagens anteriores
+    
 
-  //Mensagens
+
+  //Mensagens Atuais
   const messages = document.querySelector("#messages");
   content.scrollTo(0, content.scrollHeight) 
 
@@ -105,14 +105,38 @@ socket.on('passName', data=>{
     let li = document.createElement('li');
     let p = document.createElement('p');
     let div = document.createElement('div');
-    var contNome = document.createTextNode(nomeFinal);
-    var contMessage = document.createTextNode(message);
+    var contNome = document.createTextNode(message.author);
+    var contMessage = document.createTextNode(message.message);
     li.setAttribute('class', 'they-message')
     p.appendChild(contNome)
     div.appendChild(contMessage)
     li.appendChild(p)
     li.appendChild(div)
     messages.appendChild(li)
+
+    content.scrollTo(0, content.scrollHeight);
 }
 
 
+function renderMyMessage(message) {
+    let li = document.createElement('li');
+    let p = document.createElement('p');
+    let div = document.createElement('div');
+    var contNome = document.createTextNode(message.author);
+    var contMessage = document.createTextNode(message.message);
+    li.setAttribute('class', 'my-message')
+    p.appendChild(contNome)
+    div.appendChild(contMessage)
+    li.appendChild(p)
+    li.appendChild(div)
+    messages.appendChild(li)
+
+    content.scrollTo(0, content.scrollHeight);
+}
+
+
+
+socket.on('receivedMessage', (message)=>{
+    renderMessage(message)
+    
+})
