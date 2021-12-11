@@ -15,29 +15,25 @@
 // Configurando Socket.io
   const server = require('http').createServer(app);
   const io = require('socket.io')(server);
-
+  
   var nomes = [];
   var socketIds = [];
   
 
-
-  io.on('connection', (socket)=>{
-    socket.on('passName', (nome)=>{
-      var format = nome.toLowerCase()
-      if(nomes.indexOf(format) == -1){
-        nomes.push(format);
-        socketIds.push(socket.id);
-        socket.emit('passName', {success: true})
-      } else {
-        socket.emit('passName', {success: false})
-      }
+  // Requisições com o front-end
+    io.on('connection', (socket)=>{
+      socket.on('passName', (nome)=>{
+        var format = nome.toLowerCase()
+        if(nomes.indexOf(format) == -1){
+          nomes.push(format);
+          socketIds.push(socket.id);
+          socket.emit('passName', {success: true})
+        } else {
+          socket.emit('passName', {success: false})
+        }
       
-
-
       io.emit('listNames', nomes)
     })
-
-
 
 
     socket.on('disconnect', ()=>{
@@ -46,7 +42,7 @@
         nomes.splice(index, 1)
         socketIds.splice(index, 1)
       }
-
+      
       io.emit('listNames', nomes)
     })
   })

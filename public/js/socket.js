@@ -1,3 +1,4 @@
+//Validando o prompt
 var nome = prompt('Qual o seu nome?');
 var format = '';
 for(let i = 0; i < 10; i+= 0){
@@ -17,9 +18,10 @@ for(let i = 0; i < 10; i+= 0){
 var nomeFinal = format[0];
 
 
-
+//Conectando com o Back-end
 var socket = io()
 
+//Requisições com o Back-end
 socket.emit('passName', nomeFinal)
 
 socket.on('passName', data=>{
@@ -47,39 +49,39 @@ socket.on('passName', data=>{
             }
 })
 
+  //sidebar
+  const pessoas = document.querySelectorAll('.list-pessoas')[0];
+  const quantPessoas = document.querySelector('#quant-pessoas');
+  socket.on('listNames', (nomes) =>{
+      quantPessoas.innerHTML = nomes.length;
 
-const pessoas = document.querySelectorAll('.list-pessoas')[0];
-const quantPessoas = document.querySelector('#quant-pessoas');
-socket.on('listNames', (nomes) =>{
-    quantPessoas.innerHTML = nomes.length;
-
-    while (pessoas.firstChild) {
-        pessoas.removeChild(pessoas.firstChild);
-      }
+      while (pessoas.firstChild) {
+          pessoas.removeChild(pessoas.firstChild);
+        }
 
     
-    for(let i = 0; i < nomes.length; i++){
+      for(let i = 0; i < nomes.length; i++){
 
-        var li = document.createElement('li');
-        var p = document.createElement('p');
-        var contName = document.createTextNode(nomes[i]);
-        p.appendChild(contName);
-        li.appendChild(p);
-
-
-        pessoas.appendChild(li)
-    }
-})
+          var li = document.createElement('li');
+          var p = document.createElement('p');
+          var contName = document.createTextNode(nomes[i]);
+          p.appendChild(contName);
+          li.appendChild(p);
 
 
+          pessoas.appendChild(li)
+      }
+  })
 
-const form = document.querySelector('#form');
-const input = document.getElementById('input');
-form.addEventListener('submit', (e)=>{
-    e.preventDefault();
-    input.value = '';
-    input.focus();
-})
+
+  //Autofocus
+  const form = document.querySelector('#form');
+  const input = document.getElementById('input');
+  form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      input.value = '';
+      input.focus();
+  })
 
 
 
